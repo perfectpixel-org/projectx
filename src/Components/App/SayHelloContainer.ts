@@ -1,12 +1,12 @@
-interface ISayHelloContainer {
-  helloPhrase: string;
+interface Container {
+    helloPhrase: string;
 }
 
-class SayHelloContainer implements ISayHelloContainer {
-  public helloPhrase: string;
-  constructor() {
-    this.helloPhrase = "Hello World!";
-  }
+class SayHelloContainer implements Container {
+    public helloPhrase: string;
+    public constructor() {
+        this.helloPhrase = "Hello World!";
+    }
 }
 
 export default SayHelloContainer;
