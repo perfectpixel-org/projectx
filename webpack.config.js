@@ -1,6 +1,6 @@
+/* eslint-disable */
 const path = require('path');
 const webpack = require('webpack');
-const TSLintPlugin = require('tslint-webpack-plugin');
 
 module.exports = (env, argv) => {
     const webpackMode = argv.mode;
@@ -20,7 +20,7 @@ module.exports = (env, argv) => {
                 {
                     test: /\.(ts|tsx)$/,
                     exclude: /(node_modules|bower_components|build)/,
-                    loader: ['babel-loader']
+                    loader: ['babel-loader', 'eslint-loader']
                 },
                 {
                     test: /\.(s?css)$/,
@@ -38,13 +38,7 @@ module.exports = (env, argv) => {
             hotOnly: true
         },
         plugins: [
-            new webpack.HotModuleReplacementPlugin(),
-            new TSLintPlugin({
-                files: [
-                    './src/**/*.tsx',
-                    './src/**/*.ts'
-                ]
-            })
+            new webpack.HotModuleReplacementPlugin()
         ]
     };
 };
